@@ -1,0 +1,25 @@
+@import '../../partials/mixins.scss';
+
+.alerts {
+  background-color: lightpink;
+  padding: rem(20);
+  * {
+    color: red !important;
+  }
+
+  &.alert-200 {
+    background-color: lightgreen;
+    * {
+          color: darkgreen !important;
+    }
+
+  }
+
+  h3 {
+    margin-bottom: rem(20);
+  }
+  .alert-item {
+    margin-bottom: rem(10);
+  }
+}
+

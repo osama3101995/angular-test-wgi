@@ -1,0 +1,27 @@
+<section>
+  <app-alert [alerts]="alerts"></app-alert>
+  <form #employeeUpdate="ngForm" (ngSubmit)="UpdateEmployeeSubmit(employeeUpdate)">
+    <div class="input-field">
+      <label>First Name</label>
+      <input type="text" placeholder="Enter your first name" name="first_name" required [(ngModel)]="employee.first_name">
+    </div>
+    <div class="input-field">
+      <label>Last Name</label>
+      <input type="text" placeholder="Enter your last name" name="last_name" required [(ngModel)]="employee.last_name">
+    </div>
+    <div class="input-field">
+      <label>Position</label>
+      <input type="text" placeholder="Enter your position" name="position" required [(ngModel)]="employee.position">
+    </div>
+    <div class="input-field">
+      <label>Phone</label>
+      <input type="text" placeholder="Enter your valid phone number" name="phone_number" required [(ngModel)]="employee.phone_number">
+    </div>
+    <div class="input-field">
+      <label>Avatar</label>
+      <input  placeholder="Please enter avatar url link" type="text" name="avatar" required [(ngModel)]="employee.avatar">
+    </div>
+    <button class="plain" type="submit">Update Employee</button>
+    <button (click)="DeleteEmployee()" style="display: block;" class="outline" type="button">Delete Employee</button>
+  </form>
+</section>

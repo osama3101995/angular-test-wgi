@@ -1,0 +1,22 @@
+<section class="page home">
+
+
+
+  <h1>
+    Employees
+  </h1>
+
+  <div class="search-box">
+    <div class="input-field">
+      <label>Search</label>
+      <input [(ngModel)]="search" placeholder="What would you like to be filtered?" type="text" name="avatar">
+    </div>
+
+    <button (click)="Search()" class="plain" type="submit">
+      Search
+      <div *ngIf="loading" class="text-lds-dual-ring"></div>
+    </button>
+  </div>
+
+  <app-table [employees]="employees"></app-table>
+</section>

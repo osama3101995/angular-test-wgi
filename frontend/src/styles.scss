@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+@import "./app/partials/mixins.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  font-size: rem(16);
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin-top: rem(20);
+  max-width: 100%;
+  @include lg {
+    max-width: 40%;
+  }
+
+  input {
+    margin-top: rem(10);
+    padding: rem(5);
+  }
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  padding: rem(10) rem(20);
+  margin-top: rem(20);
+
+  &.plain {
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    &:hover {
+      border: 1px solid #000;
+      background-color: #fff;
+      color: #000;
+    }
+  }
+  &.outline {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    &:hover {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+
+  &:disabled {
+    background-color: rgba(#000, 0.2);
+    color: rgba(#000, 0.5);
+  }
+}
+
+
+.desktop-only {
+  @include md-max {
+      display: none !important;
+  }
+
+}
+
+.mobile-only {
+  @include lg {
+      display: none !important;
+  }
+
+}
+
+
+.text-lds-dual-ring {
+  display: inline-block;
+  width: rem(16);
+  height: rem(16);
+}
+.text-lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: rem(16);
+  height: rem(16);
+  border-radius: 50%;
+  border: rem(2) solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: text-lds-dual-ring 1.2s linear infinite;
+}
+@keyframes text-lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

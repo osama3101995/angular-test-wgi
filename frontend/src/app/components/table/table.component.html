@@ -1,0 +1,49 @@
+<section class="table-page">
+  <div class="table-wrapper">
+    <table class="fl-table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone Number</th>
+          <th>Position</th>
+          <th>Avatar</th>
+          <ng-container *ngIf="auth.isAuthenticated$ | async">
+            <th>Edit</th>
+          </ng-container>
+
+        </tr>
+      </thead>
+      <tbody>
+        @for( employee of employees; track employee.id){
+        <tr>
+          <td>{{employee.first_name}}</td>
+          <td>{{employee.last_name}}</td>
+          <td>{{employee.phone_number}}</td>
+          <td>{{employee.position}}</td>
+          <td>
+            <img alt="avatar" height=50 width=50 [src]='employee.avatar'/>
+          </td>
+          <ng-container *ngIf="auth.isAuthenticated$ | async">
+            <td>
+              <a [routerLink]="['/employee/view/',employee.id ]">
+                Edit
+              </a>
+            </td>
+          </ng-container>
+
+        </tr>
+
+        }
+        @empty {
+          Nothing to display here!
+        }
+
+
+      </tbody>
+    </table>
+    <div class="table-pagination-button">
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<div *ngIf="alerts" [class]="['alerts', 'alert-'+alerts.status]">
+  <h3>{{alerts.title}}</h3>
+  <div class="alert-item" *ngFor="let item of alerts?.errors | keyvalue">
+    <h4>{{ item.key }}:</h4>
+    <p *ngFor="let message of item.value">
+      {{message}}
+    </p>
+
+  </div>
+</div>

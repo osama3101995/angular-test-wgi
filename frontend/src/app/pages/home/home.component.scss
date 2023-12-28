@@ -1,0 +1,15 @@
+@import "../../partials/mixins.scss";
+
+.home {
+    margin-top: rem(30);
+
+    h1 {
+      font-size: rem(57);
+      font-weight: 100;
+      margin-bottom: rem(30);
+    }
+
+    .search-box {
+      margin-bottom: rem(20);
+    }
+}

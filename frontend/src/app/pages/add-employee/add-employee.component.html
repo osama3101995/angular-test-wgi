@@ -1,0 +1,26 @@
+<section>
+  <app-alert [alerts]="alerts"></app-alert>
+  <form #employeeAdd="ngForm" (ngSubmit)="AddEmployeeSubmit(employeeAdd)">
+    <div class="input-field">
+      <label>First Name</label>
+      <input type="text" placeholder="Enter your first name" name="first_name" ngModel required #first_name="ngModel">
+    </div>
+    <div class="input-field">
+      <label>Last Name</label>
+      <input type="text" placeholder="Enter your last name" name="last_name" ngModel required #last_name="ngModel">
+    </div>
+    <div class="input-field">
+      <label>Position</label>
+      <input type="text" placeholder="Enter your position" name="position" ngModel required #position="ngModel">
+    </div>
+    <div class="input-field">
+      <label>Phone</label>
+      <input type="text" placeholder="Enter your valid phone number" name="phone_number" ngModel required #phone_number="ngModel">
+    </div>
+    <div class="input-field">
+      <label>Avatar</label>
+      <input placeholder="Please enter avatar url link" type="text" name="avatar" ngModel required #avatar="ngModel">
+    </div>
+    <button class="plain" type="submit">Add New Employee</button>
+  </form>
+</section>

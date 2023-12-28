@@ -1,0 +1,69 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <h2> Employee App</h2>
+
+    <div class="links desktop-only">
+      <a class="nav-link" routerLink="/" class="nav-link">
+        Home
+      </a>
+      <ng-container *ngIf="auth.isAuthenticated$ | async">
+        <a class="nav-link" routerLink="/employee/add" class="nav-link">
+          Add Employee
+        </a>
+      </ng-container>
+
+    </div>
+    <div class="menu-button mobile-only">
+      <ng-container *ngIf="!menuToggle; else close">
+        <img width=50 height=50 alt="menu" src="assets/images/hamburger.svg" (click)="toggleMenuState()" />
+
+      </ng-container>
+      <ng-template #close>
+
+        <img width=50 height=50 alt="menu" src="assets/images/cancel.svg" (click)="toggleMenuState()" />
+      </ng-template>
+
+    </div>
+  </div>
+
+  <div class="nav-right">
+
+    <ng-container *ngIf="menuToggle">
+      <div class="links mobile-only">
+        <a class="nav-link" routerLink="/" class="nav-link" (click)="toggleMenuState()" >
+          Home
+        </a>
+        <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+          <a class="nav-link" routerLink="/employee/add" class="nav-link" (click)="toggleMenuState()" >
+            Add Employee
+          </a>
+          <button class="outline" (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">
+            Log out
+          </button>
+        </ng-container>
+        <ng-template #loggedOut>
+          <button class="plain" (click)="auth.loginWithRedirect()">Log in</button>
+        </ng-template>
+      </div>
+    </ng-container>
+
+    <div class="desktop-only">
+
+      <div>
+        <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+          <button class="outline" (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">
+            Log out
+          </button>
+        </ng-container>
+
+        <ng-template #loggedOut>
+          <button class="plain" (click)="auth.loginWithRedirect()">Log in</button>
+        </ng-template>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</nav>

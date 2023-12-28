@@ -1,0 +1,123 @@
+@import "../../partials/mixins.scss";
+
+.table-page {
+
+    .fl-table {
+        border-radius: rem(5);
+        font-weight: normal;
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
+        white-space: nowrap;
+        background-color: #fff;
+
+        td,
+        th {
+        text-align: center;
+        padding: rem(16);
+        }
+
+        td {
+        border-right: 1px solid #f8f8f8;
+        }
+
+        thead th {
+        color: #ffffff;
+        background: #011f4b;
+
+        &:nth-child(odd) {
+            background: #005b96;
+        }
+        }
+
+        tr:nth-child(even) {
+        background: #f8f8f8;
+        }
+
+        @include md-max {
+
+            display: block;
+            width: 100%;
+
+            .table-wrapper:before{
+                content: "Scroll horizontally >";
+                display: block;
+                text-align: right;
+                color: white;
+                padding: 0 0 rem(10);
+            }
+
+            thead,
+            tbody,
+            thead th {
+                display: block;
+            }
+
+            thead th:last-child {
+                border-bottom: none;
+            }
+
+            thead {
+                float: left;
+
+                th {
+                    text-align: left;
+                    border-bottom: 1px solid #f7f7f9;
+
+                }
+            }
+
+            tbody {
+                width: auto;
+                position: relative;
+                overflow-x: auto;
+
+                tr {
+                display: table-cell;
+
+                    &:nth-child(odd) {
+                        background: none;
+                    }
+                }
+
+                td {
+                    display: block;
+                    text-align: center;
+                }
+            }
+
+            tr:nth-child(even) {
+                background: transparent;
+            }
+
+            tr td:nth-child(odd) {
+                background: #F8F8F8;
+                border-right: 1px solid #E6E4E4;
+            }
+
+            tr td:nth-child(even) {
+                border-right: 1px solid #E6E4E4;
+            }
+
+            td, th {
+                padding: rem(20) .625em .625em .625em;
+                height: rem(60);
+                vertical-align: middle;
+                box-sizing: border-box;
+                overflow-x: hidden;
+                overflow-y: auto;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .table-pagination-button {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: rem(20);
+        button {
+            margin-left: rem(20);
+        }
+    }
+}
