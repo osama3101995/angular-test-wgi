@@ -1,5 +1,5 @@
 
-# nextjs-test-innoscripta
+# angular-dotnet-test-wgi
 
 **Introduction**
 An Angular / .Net Web Core API Project that makes use of the following libraries and APIs:
