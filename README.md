@@ -3,7 +3,7 @@
 
 **Introduction**
 An Angular / .Net Web Core API Project that makes use of the following libraries and APIs:
-
+- azure blob
 - scss
 - auth0
 - sqlserver
