@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace wgi_api.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,6 @@ namespace wgi_api.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     First_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Last_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Avatar = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Position = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone_number = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },

@@ -28,10 +28,6 @@ namespace wgi_api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Avatar")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("First_name")
                         .IsRequired()
                         .HasMaxLength(100)

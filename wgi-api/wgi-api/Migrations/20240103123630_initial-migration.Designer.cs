@@ -12,8 +12,8 @@ using wgi_api.Data;
 namespace wgi_api.Migrations
 {
     [DbContext(typeof(WgiEmployeesDbContext))]
-    [Migration("20231227143051_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20240103123630_initial-migration")]
+    partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,10 +29,6 @@ namespace wgi_api.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Avatar")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("First_name")
                         .IsRequired()

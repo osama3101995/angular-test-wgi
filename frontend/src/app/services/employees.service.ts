@@ -20,7 +20,8 @@ export class EmployeesService {
     auth.idTokenClaims$.subscribe({
       next : (res) => {
       const token: HttpHeaders = new HttpHeaders({
-          Authorization: 'Bearer '+ res?.__raw
+          Authorization: 'Bearer '+ res?.__raw,
+          //'Content-Type': 'multipart/form-data',
       });
         this.httpHeaders = {
           headers : token
@@ -41,9 +42,8 @@ export class EmployeesService {
     return this.http.get<Employee>(this.baseApiUrl+`/${id}`)
   }
 
-  addEmployee(employee : Employee) :Observable<Employee>{
+  addEmployee(employee : any) :Observable<Employee>{
 
-    console.log(this.httpHeaders)
     return this.http.post<Employee>(this.baseApiUrl,employee, this.httpHeaders)
   }
 

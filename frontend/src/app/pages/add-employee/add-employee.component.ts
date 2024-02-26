@@ -18,24 +18,46 @@ export class AddEmployeeComponent {
 
   public alerts : Alert | null = null
 
+  public fileUpload : any | null = null
+
   constructor(private EmployeeService: EmployeesService,
     private router: Router) {}
+
+  FileUploadedEvent(event: any) {
+
+    if(event?.target?.files){
+      const fileList : FileList = event.target.files
+      this.fileUpload = []
+      for (let index = 0; index < fileList.length; index++) {
+        this.fileUpload.push(fileList.item(index))
+      }
+    }
+
+  }
 
   AddEmployeeSubmit(employeeAdd: NgForm) {
     const { first_name, last_name, avatar, position, phone_number } =
       employeeAdd.value;
 
 
-    const employee: Employee = {
+    const formData = new FormData();
+    formData.append("first_name", first_name)
+    formData.append("last_name", last_name)
+    formData.append("position", position)
+    formData.append("phone_number", phone_number)
+    if(this.fileUpload){
+      for (let index = 0; index < this.fileUpload.length; index++) {
+        formData.append("avatar", this.fileUpload[index])
+      }
 
-      first_name,
-      last_name,
-      avatar,
-      position,
-      phone_number,
-    };
-    this.EmployeeService.addEmployee(employee).subscribe({
+    }
+
+    console.log(formData);
+
+
+    this.EmployeeService.addEmployee(formData).subscribe({
       next: (res) => {
+        this.fileUpload = null;
         this.alerts = {
           status : 200,
           title : "User Added Successfully! You will be redirected back shortly"
@@ -46,8 +68,9 @@ export class AddEmployeeComponent {
         console.log(res)
       },
       error : (err)=>{
+        this.fileUpload = null;
         this.alerts = err.error
       }
-    });;
+    });
   }
 }

@@ -19,7 +19,7 @@
     </div>
     <div class="input-field">
       <label>Avatar</label>
-      <input placeholder="Please enter avatar url link" type="text" name="avatar" ngModel required #avatar="ngModel">
+      <input  type="file" id="file" (change)="FileUploadedEvent($event)" multiple>
     </div>
     <button class="plain" type="submit">Add New Employee</button>
   </form>

@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace wgi_api.Models
 {
     public class Employee
     {
+        [Key]
+        [Required]
         public Guid Id { get; set; }
 
         [Required]
@@ -15,9 +18,9 @@ namespace wgi_api.Models
         [StringLength(100)]
         public string Last_name { get; set; }
 
-        [Required]
-        [Url(ErrorMessage = "Valid URL is required")]
-        public string Avatar{ get; set; }
+        [Required(ErrorMessage = "Please select files")]
+        [NotMapped]
+        public List<IFormFile> Avatar { get; set; }
 
         [Required]
         public string Position { get; set; }
